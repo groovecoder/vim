@@ -40,6 +40,8 @@ nnoremap <silent> <Leader>y :FuzzyFinderBuffer<CR>
 nnoremap <silent> <Leader>r :FuzzyFinderMruFile<CR>
 nnoremap <silent> <Leader>: :FuzzyFinderMruCmd<CR>
 
+nnoremap <silent> <Leader>v :YRShow<CR>
+
 " Taglist vars
 " Display function name in status bar:
 let g:ctags_statusline=1
