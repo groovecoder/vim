@@ -2,6 +2,7 @@ let mapleader = ","
 
 filetype plugin indent on
 set t_Co=256
+colorscheme lucius
 set nocompatible
 set autoindent
 set tabstop=4
@@ -17,26 +18,33 @@ set lbr
 set modeline
 syntax on
 set incsearch
-colorscheme lucius
 set gfn=Monaco:h12
 set number
 set foldmethod=indent
 set foldlevel=99
 set guioptions-=T
 
+" HTML
+autocmd FileType html setlocal shiftwidth=2
+autocmd FileType html setlocal tabstop=2
+autocmd FileType html setlocal softtabstop=2
+autocmd FileType html setlocal textwidth=0
+" CSS
+autocmd FileType css setlocal shiftwidth=2
+autocmd FileType css setlocal tabstop=2
+autocmd FileType css setlocal softtabstop=2
+autocmd FileType css setlocal textwidth=0
+
 highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let python_highlight_all=1
 
-nnoremap <C-f><C-f> :FufFile<CR>
-nnoremap <C-f><C-b> :FufBuffer<CR>
-nnoremap <C-f><C-t> :FufTag<CR>
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|pyc|DS_Store)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 let g:fuzzy_ignore = "*.pyc;*.log;*.png;*.jpg;*.gif;*.xcf;*.ico;tmp/;cache/;vendor/**;node_modules/**"
 
-nnoremap <silent> <Leader>t :FuzzyFinderTextMate<CR>
-nnoremap <silent> <Leader>y :FuzzyFinderBuffer<CR>
+nnoremap <silent> <Leader>f :FuzzyFinderTextMate<CR>
+nnoremap <silent> <Leader>b :FuzzyFinderBuffer<CR>
 nnoremap <silent> <Leader>r :FuzzyFinderMruFile<CR>
 nnoremap <silent> <Leader>: :FuzzyFinderMruCmd<CR>
 
@@ -70,7 +78,10 @@ let g:netrw_list_hide=".*\.pyc$"
 
 if version > 700
     autocmd FileType python set ofu=pythoncomplete#Complete
-    inoremap <C-space> <C-x><C-o>
+    autocmd FileType javascript set ofu=javascriptcomplete#CompleteJS
+    autocmd FileType html set ofu=htmlcomplete#CompleteTags
+    autocmd FileType css set ofu=csscomplete#CompleteCSS
+    nnoremap <C-space> <C-x><C-o>
     if has("colorcolumn")
         set colorcolumn=80
     endif
