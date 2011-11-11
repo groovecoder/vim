@@ -10,6 +10,7 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+set textwidth=80
 set laststatus=2
 set wildchar=<Tab>
 set whichwrap=h,l
@@ -20,8 +21,12 @@ syntax on
 set incsearch
 set gfn=Monaco:h12
 set number
+
 set foldmethod=indent
 set foldlevel=99
+nnoremap <silent> f za<CR>
+nnoremap <silent> F zA<CR>
+
 set guioptions-=T
 
 " HTML
@@ -43,10 +48,10 @@ let python_highlight_all=1
 let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|pyc|DS_Store)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 let g:fuzzy_ignore = "*.pyc;*.log;*.png;*.jpg;*.gif;*.xcf;*.ico;tmp/;cache/;vendor/**;node_modules/**"
 
-nnoremap <silent> <Leader>f :FuzzyFinderTextMate<CR>
-nnoremap <silent> <Leader>b :FuzzyFinderBuffer<CR>
-nnoremap <silent> <Leader>r :FuzzyFinderMruFile<CR>
-nnoremap <silent> <Leader>: :FuzzyFinderMruCmd<CR>
+nnoremap <silent> <Leader>f :FufCoverageFile<CR>
+nnoremap <silent> <Leader>b :FufBuffer<CR>
+nnoremap <silent> <Leader>r :FufMruFile<CR>
+nnoremap <silent> <Leader>: :FufMruCmd<CR>
 
 nnoremap <silent> <Leader>v :YRShow<CR>
 
