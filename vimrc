@@ -10,7 +10,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
-set textwidth=80
+set textwidth=79
+set cc=+1
 set laststatus=2
 set wildchar=<Tab>
 set whichwrap=h,l
@@ -45,8 +46,8 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let python_highlight_all=1
 
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|pyc|DS_Store)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-let g:fuzzy_ignore = "*.pyc;*.log;*.png;*.jpg;*.gif;*.xcf;*.ico;tmp/;cache/;vendor/**;node_modules/**"
+let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|pyc|log|png|jpg|gif|xcf|ico|DS_Store)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])\vendor'
 
 nnoremap <silent> <Leader>f :FufCoverageFile<CR>
 nnoremap <silent> <Leader>b :FufBuffer<CR>
