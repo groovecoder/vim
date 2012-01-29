@@ -13,6 +13,7 @@ set smarttab
 set textwidth=79
 set cc=+1
 set laststatus=2
+set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]
 set wildchar=<Tab>
 set whichwrap=h,l
 set formatoptions=l
@@ -56,6 +57,7 @@ nnoremap <silent> <Leader>: :FufMruCmd<CR>
 
 nnoremap <silent> <Leader>v :YRShow<CR>
 
+nnoremap <silent> <Leader>l :set invnumber<CR>
 " Taglist vars
 " Display function name in status bar:
 let g:ctags_statusline=1
