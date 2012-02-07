@@ -26,3 +26,5 @@ alias tree="git log --graph --oneline"
 #alias mysql="mysql -u root -pr00t"
 alias testkuma="python manage.py test actioncounters contentflagging demos devmo landing search wiki"
 alias testmdn="python manage.py test actioncounters contentflagging dekicompat demos devmo landing users"
+
+[[ -s "/Users/lcrouch/.rvm/scripts/rvm" ]] && source "/Users/lcrouch/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
