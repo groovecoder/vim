@@ -42,6 +42,9 @@ autocmd FileType css setlocal tabstop=2
 autocmd FileType css setlocal softtabstop=2
 autocmd FileType css setlocal textwidth=0
 
+" use html for MDN editing
+autocmd BufNewFile,BufRead developer.mozilla.org.*.txt setlocal filetype=html
+
 highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
