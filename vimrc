@@ -66,6 +66,11 @@ nnoremap <silent> <Leader>: :FufMruCmd<CR>
 " YankRing
 nnoremap <silent> <Leader>v :YRShow<CR>
 
+" Gist
+let g:gist_clip_command='pbcopy'
+let g:gist_detect_filetype=1
+nnoremap <silent> <Leader>V :'<,'>Gist<CR>
+
 nnoremap <silent> <Leader>l :set invnumber<CR>
 
 " Taglist vars
