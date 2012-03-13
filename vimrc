@@ -24,6 +24,10 @@ set incsearch
 set gfn=Monaco:h12
 set number
 
+" Quicker key shortcuts
+nnoremap <silent> <Leader>w :w<CR>
+
+" Code Folding
 set foldmethod=indent
 set foldlevel=99
 nnoremap <silent> f za<CR>
@@ -42,6 +46,8 @@ autocmd FileType css setlocal tabstop=2
 autocmd FileType css setlocal softtabstop=2
 autocmd FileType css setlocal textwidth=0
 
+au BufRead,BufNewFile *.pegjs set filetype=javascript
+
 " use html for MDN editing
 autocmd BufNewFile,BufRead developer.mozilla.org.*.txt setlocal filetype=html
 
@@ -50,17 +56,18 @@ au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let python_highlight_all=1
 
-let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|pyc|log|png|jpg|gif|xcf|ico|DS_Store)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
-let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr)($|[/\\])\vendor'
-
+" Fuzzy Finder
+let g:fuf_coveragefile_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|jpg|png|gif)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|vendor/|_site|node_modules|^tmp'
 nnoremap <silent> <Leader>f :FufCoverageFile<CR>
 nnoremap <silent> <Leader>b :FufBuffer<CR>
 nnoremap <silent> <Leader>r :FufMruFile<CR>
 nnoremap <silent> <Leader>: :FufMruCmd<CR>
 
+" YankRing
 nnoremap <silent> <Leader>v :YRShow<CR>
 
 nnoremap <silent> <Leader>l :set invnumber<CR>
+
 " Taglist vars
 " Display function name in status bar:
 let g:ctags_statusline=1
@@ -84,9 +91,11 @@ let Tlist_Inc_Winwidth=0
 " let g:miniBufExplMapCTabSwitchBufs = 1
 " let g:miniBufExplModSelTarget = 1
 
+" NERDTree
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
 let g:netrw_list_hide=".*\.pyc$"
 
+" OmniComplete
 if version > 700
     autocmd FileType python set ofu=pythoncomplete#Complete
     autocmd FileType javascript set ofu=javascriptcomplete#CompleteJS
