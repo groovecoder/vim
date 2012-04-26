@@ -26,6 +26,7 @@ set number
 
 " Quicker key shortcuts
 nnoremap <silent> <Leader>w :w<CR>
+inoremap <Leader><Leader> <esc>
 
 " Code Folding
 set foldmethod=indent

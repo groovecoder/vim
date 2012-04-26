@@ -15,6 +15,7 @@ source /opt/local/bin/virtualenvwrapper.sh-2.6
 alias vi="vim"
 alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
 alias ..="cd .."
+source ~/.git/git-completion.bash
 alias br="git br"
 alias pwd="pwd && git branch 2> /dev/null"
 alias st="git st"
@@ -23,8 +24,10 @@ alias pull="git pull --rebase"
 alias push="git push"
 alias stash="git stash"
 alias tree="git log --graph --oneline"
+alias gco='git co'
+alias gci='git ci'
+alias grb='git rb'
 #alias mysql="mysql -u root -pr00t"
-alias testkuma="python manage.py test actioncounters contentflagging demos devmo landing search wiki"
-alias testmdn="python manage.py test actioncounters contentflagging dekicompat demos devmo landing users"
+alias testkuma="python manage.py test actioncounters contentflagging dekicompat demos devmo landing users wiki"
 
 [[ -s "/Users/lcrouch/.rvm/scripts/rvm" ]] && source "/Users/lcrouch/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
