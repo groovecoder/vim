@@ -15,19 +15,31 @@ source /opt/local/bin/virtualenvwrapper.sh-2.6
 alias vi="vim"
 alias vim=/Applications/MacPorts/MacVim.app/Contents/MacOS/Vim
 alias ..="cd .."
+alias pd="pushd"
 source ~/.git/git-completion.bash
 alias br="git br"
 alias pwd="pwd && git branch 2> /dev/null"
 alias st="git st"
-alias add="git add"
-alias pull="git pull --rebase"
-alias push="git push"
-alias stash="git stash"
-alias tree="git log --graph --oneline"
+alias ga="git add"
+alias gpr="git pull --rebase"
+alias gps="git push"
+alias gs="git stash"
+alias gt="git log --graph --oneline"
 alias gco='git co'
 alias gci='git ci'
 alias grb='git rb'
+alias gf='git fetch'
+alias ghash='git rev-parse HEAD && git rev-parse HEAD | pbcopy'
 #alias mysql="mysql -u root -pr00t"
 alias testkuma="python manage.py test actioncounters contentflagging dekicompat demos devmo landing users wiki"
 
 [[ -s "/Users/lcrouch/.rvm/scripts/rvm" ]] && source "/Users/lcrouch/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}

@@ -13,7 +13,7 @@ set smarttab
 set textwidth=79
 set cc=+1
 set laststatus=2
-set statusline=%t\ %y\ format:\ %{&ff};\ [%c,%l]
+set statusline=%t\ %{fugitive#statusline()}\ %y\ format:\ %{&ff};\ [%c,%l]
 set wildchar=<Tab>
 set whichwrap=h,l
 set formatoptions=l
@@ -24,9 +24,15 @@ set incsearch
 set gfn=Monaco:h12
 set number
 
+" Replace selected text in visual mode
+vnoremap <C-r> "hy:%s/<C-r>h/gc<left><left><left>
+
 " Quicker key shortcuts
 nnoremap <silent> <Leader>w :w<CR>
 inoremap <Leader><Leader> <esc>
+nnoremap <silent> <Leader>c :q<CR>
+nnoremap <silent> <Leader>p :set paste<CR>
+nnoremap <silent> <Leader>n :set nopaste<CR>
 
 " Code Folding
 set foldmethod=indent
@@ -46,6 +52,11 @@ autocmd FileType css setlocal shiftwidth=2
 autocmd FileType css setlocal tabstop=2
 autocmd FileType css setlocal softtabstop=2
 autocmd FileType css setlocal textwidth=0
+" JavaScript
+autocmd FileType javascript setlocal shiftwidth=2
+autocmd FileType javascript setlocal tabstop=2
+autocmd FileType javascript setlocal softtabstop=2
+autocmd FileType javascript setlocal textwidth=0
 
 au BufRead,BufNewFile *.pegjs set filetype=javascript
 
@@ -72,6 +83,7 @@ let g:gist_clip_command='pbcopy'
 let g:gist_detect_filetype=1
 nnoremap <silent> <Leader>V :'<,'>Gist<CR>
 
+" toggle line numbers
 nnoremap <silent> <Leader>l :set invnumber<CR>
 
 " Taglist vars
@@ -107,7 +119,12 @@ if version > 700
     autocmd FileType javascript set ofu=javascriptcomplete#CompleteJS
     autocmd FileType html set ofu=htmlcomplete#CompleteTags
     autocmd FileType css set ofu=csscomplete#CompleteCSS
-    nnoremap <C-space> <C-x><C-o>
+    inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
+    \ "\<lt>C-n>" :
+    \ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
+    \ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
+    \ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
+    imap <C-@> <C-Space>
     if has("colorcolumn")
         set colorcolumn=80
     endif
@@ -202,5 +219,12 @@ else
   endif
 endif
 
-nnoremap <silent> <F5> :Shell git st<CR>
+nnoremap <silent> <F5> :Gstatus<CR>
 nnoremap <silent> <F6> :Shell git diff<CR>
+noremap <C-g><C-h> :Gbrowse<CR>
+noremap <C-g><C-b> :Gblame<CR>
+noremap <C-g><C-s> :Gstatus<CR>
+noremap <C-g><C-d> :Gdiff<CR>
+noremap <C-d><C-l> :diffget 2<CR>:diffupdate<CR>
+noremap <C-d><C-r> :diffget 5<CR>:diffupdate<CR>
+noremap <C-d><C-p> :dp<CR>:diffupdate<CR>
