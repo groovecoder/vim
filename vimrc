@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 let mapleader = ","
 
 filetype plugin indent on
@@ -225,6 +227,8 @@ noremap <C-g><C-h> :Gbrowse<CR>
 noremap <C-g><C-b> :Gblame<CR>
 noremap <C-g><C-s> :Gstatus<CR>
 noremap <C-g><C-d> :Gdiff<CR>
+noremap <C-g><C-n> :GitGutterNextHunk<CR>
+noremap <C-g><C-p> :GitGutterPrevHunk<CR>
 noremap <C-d><C-l> :diffget 2<CR>:diffupdate<CR>
 noremap <C-d><C-r> :diffget 5<CR>:diffupdate<CR>
 noremap <C-d><C-p> :dp<CR>:diffupdate<CR>
