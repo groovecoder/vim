@@ -1,7 +1,13 @@
 export CLICOLOR='true'
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home
 export XAMPP_HOME=/Applications/xampp
-export PATH=$PATH:~/bin:/usr/local/bin:$JAVA_HOME/bin:/usr/local/git/bin/git-tools:~/code/code_swarm/bin
+export PATH=$PATH:~/bin
+export PATH=$PATH:/usr/local/bin
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:/usr/local/git/bin/git-tools
+export PATH=$PATH:~/code/code_swarm/bin
+export PATH=$PATH:/Applications/adt-bundle-mac/sdk/platform-tools
+export PATH=$PATH:/Applications/adt-bundle-mac/sdk/tools
 export SVN_EDITOR=vim
 test -r /sw/bin/init.sh && . /sw/bin/init.sh
 
@@ -32,6 +38,7 @@ alias gf='git fetch'
 alias ghash='git rev-parse HEAD && git rev-parse HEAD | pbcopy'
 #alias mysql="mysql -u root -pr00t"
 alias testkuma="python manage.py test actioncounters contentflagging dekicompat demos devmo landing users wiki"
+alias django-lint="python /Users/lcrouch/code/django-compat-lint/django_compat_lint.py --django-15"
 
 [[ -s "/Users/lcrouch/.rvm/scripts/rvm" ]] && source "/Users/lcrouch/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
