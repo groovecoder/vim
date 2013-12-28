@@ -1,0 +1,47 @@
+[alias]
+	st = status --ignore-submodules
+    stf = status
+	ci = commit
+	br = branch
+	co = checkout
+    rb = rebase
+	df = diff
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' 
+	lol = log --graph --decorate --pretty=oneline --abbrev-commit
+	lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    sh = stash list --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' 
+	ls = ls-files
+	up = pull --rebase
+    diff = diff --word-diff=bold
+    fixup = commit --amend --no-edit
+[color]
+	ui = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+        remote = green
+[color "diff"]
+        meta = yellow bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+[user]
+	name = groovecoder
+	email = luke.crouch@gmail.com
+[merge]
+	conflictstyle = diff3
+[diff]
+	tool = opendiff
+	algorithm = patience
+[github]
+	user = groovecoder
+	token = b42474077320ee725ae5204685cee673
+[push]
+	default = tracking
+[core]
+	editor = /usr/bin/vim
+    excludesfile = ~/.git_global_ignore.txt
